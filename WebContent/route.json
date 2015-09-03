@@ -1,0 +1,118 @@
+{
+  "_links":    {
+    "self":       {
+      "href": "http://localhost:8080/FleetMgtSystem/routes/{?page,size,sort}",
+      "templated": true
+    },
+    "next":       {
+      "href": "http://localhost:8080/FleetMgtSystem/routes/?page=1&size=20{&sort}",
+      "templated": true
+    }
+  },
+  "_embedded": {"routes":    [
+    {
+      "id": "5584807ecb041554468f0970",
+      "routeName": "Koramangala-MTW",
+      "source": "Koramangala",
+      "destination": "MindTree-Global Village",
+      "pickUpPoints":          [
+        "Majestic",
+        "Sirsi circle"
+      ],
+      "vehicleList":          [
+        {
+          "id": "5584807ecb041554468f096e",
+          "regNo": "AP-1234",
+          "policeVerificationNo": null,
+          "yearOfManifacture": null,
+          "permitEndDate": null,
+          "fitnessEndDate": null,
+          "insuranceEndDate": null,
+          "vehicleType": null,
+          "ownerName": null,
+          "panNo": null,
+          "phoneNo": null,
+          "address": null,
+          "occupancy": null,
+          "logBookEntry": null,
+          "regVerified": null,
+          "routeList": null
+        },
+        {
+          "id": "5584807ecb041554468f096f",
+          "regNo": "KA-28_F345",
+          "policeVerificationNo": null,
+          "yearOfManifacture": null,
+          "permitEndDate": null,
+          "fitnessEndDate": null,
+          "insuranceEndDate": null,
+          "vehicleType": null,
+          "ownerName": null,
+          "panNo": null,
+          "phoneNo": null,
+          "address": null,
+          "occupancy": null,
+          "logBookEntry": null,
+          "regVerified": null,
+          "routeList": null
+        }
+      ],
+      "_links":          {
+        "self": {"href": "http://localhost:8080/FleetMgtSystem/routes/5584807ecb041554468f0970"},
+        "vehicleList": {"href": "http://localhost:8080/FleetMgtSystem/routes/5584807ecb041554468f0970/vehicleList"}
+      }
+    },
+    {
+      "id": "5584807ecb041554468f0970",
+      "routeName": "Koramangala-MTW",
+      "source": "Koramangala",
+      "destination": "MindTree-Global Village",
+      "pickUpPoints":          [
+        "Majestic",
+        "Sirsi circle"
+      ],
+      "vehicleList":          [
+        {
+          "id": "5584807ecb041554468f096e",
+          "regNo": "AP-1234",
+          "policeVerificationNo": null,
+          "yearOfManifacture": null,
+          "permitEndDate": null,
+          "fitnessEndDate": null,
+          "insuranceEndDate": null,
+          "vehicleType": null,
+          "ownerName": null,
+          "panNo": null,
+          "phoneNo": null,
+          "address": null,
+          "occupancy": null,
+          "logBookEntry": null,
+          "regVerified": null,
+          "routeList": null
+        },
+        {
+          "id": "5584807ecb041554468f096f",
+          "regNo": "KA-28_F345",
+          "policeVerificationNo": null,
+          "yearOfManifacture": null,
+          "permitEndDate": null,
+          "fitnessEndDate": null,
+          "insuranceEndDate": null,
+          "vehicleType": null,
+          "ownerName": null,
+          "panNo": null,
+          "phoneNo": null,
+          "address": null,
+          "occupancy": null,
+          "logBookEntry": null,
+          "regVerified": null,
+          "routeList": null
+        }
+      ],
+      "_links":          {
+        "self": {"href": "http://localhost:8080/FleetMgtSystem/routes/5584807ecb041554468f0970"},
+        "vehicleList": {"href": "http://localhost:8080/FleetMgtSystem/routes/5584807ecb041554468f0970/vehicleList"}
+      }
+    }]
+  }
+}

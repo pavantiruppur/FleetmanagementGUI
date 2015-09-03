@@ -1,0 +1,150 @@
+<h1>{{title}}</h1>
+<button type="button" class="btn btn-default navbar-right navbar-btn" ng-click="assignVehicle(-1)"  data-toggle="modal" data-target="#addVehicleModal">Add Vehicle</button>
+<div class="table-responsive">
+    <!-- <div class="alert alert-warning alert-dismissible" role="alert" >{{scope.status}}</div> -->
+
+    <!-- Table -->
+    <table class="table">
+        <tr>
+            <th>RegNo</th>
+            <th>Policy Verification #</th>
+            <th>YOM</th>
+            <th>Owner Name</th>
+            <th>Vehicle Type</th>
+            <th></th>
+        </tr>
+
+        <tr ng-repeat="vehicle in listOfVehicle._embedded.vehicles">
+            <td>{{vehicle.regNo}}</td>
+            <td>{{vehicle.policeVerificationNo}}</td>
+            <td>{{vehicle.yearOfManifacture}}</td>
+            <td>{{vehicle.ownerName}}</td>
+            <td>{{vehicle.vehicleType}}</td>
+            <td>
+                <button type="button" class="btn btn-default" aria-label="Left Align" data-ng-click="assignVehicle($index)" data-toggle="modal" data-target="#addVehicleModal">
+                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="btn btn-default" aria-label="Left Align"  data-ng-click="deleteVehicle($index)">
+                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<!-- Modal window -->
+<div class="modal fade" id="addVehicleModal" tabindex="-1" role="dialog" aria-labelledby="addVehicleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" data-ng-app="myApp">
+        <div class="modal-content">
+                <form id="addVehicle" data-toggle="validator" class="form-horizontal" role="form" data-ng-submit="addOrUpdateVehicle()">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="registrationModalLabel">Vehicle Registration</h4>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="form-group has-feedback">
+                        <label for="vehicleRegistrationName" class="col-sm-4 control-label">Vehicle Registration #</label>
+                        <div class="col-sm-8">
+                            <input type="text" data-ng-model="vehicle.regNo" class="form-control" id="vehicleRegistrationName"
+                                   placeholder="Vehicle Registration Number" required />
+                        </div>
+                    </div>
+
+                    <div class="form-group has-feedback">
+                        <label for="inputRegistrationSurname" class="col-sm-4 control-label">Police Verification #</label>
+                        <div class="col-sm-8">
+                            <input type="text" data-ng-model="vehicle.policeVerificationNo" class="form-control" id="inputRegistrationSurname" placeholder="Police Verification Number" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group has-feedback">
+                        <label for="year" class="col-sm-4 control-label">Year</label>
+                        <div class="col-sm-3">
+                            <select class="form-control" id="year" data-ng-model="vehicle.yearOfManifacture" >
+                                <option>2010</option>
+                                <option>2011</option>
+                                <option>2012</option>
+                                <option>2013</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group has-feedback">
+                        <label for="permitEndDate" class="col-sm-4 control-label">Permit End Date</label>
+                        <div class="col-sm-5">
+                            <div class="input-group" >
+                                <input type="text" data-ng-model="vehicle.permitEndDate" data-provide="datepicker" class="form-control" id="permitEndDate" placeholder="Permit End date" required>
+										<span class="input-group-addon">
+											<span class="glyphicon glyphicon-calendar"></span>
+										</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group has-feedback">
+                        <label for="fintnessEndDate" class="col-sm-4 control-label">Fitness End date</label>
+                        <div class="col-sm-5">
+                            <div class="input-group">
+                                <input type="text" data-ng-model="vehicle.fitnessEndDate" class="form-control" id="fintnessEndDate" placeholder="Fitness End date" required>
+										<span class="input-group-addon">
+											<span class="glyphicon glyphicon-calendar"></span>
+										</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group has-feedback">
+                        <label for="insuranceEndDate" class="col-sm-4 control-label">Insurance End Date</label>
+                        <div class="col-sm-5">
+                            <div class="input-group">
+                                <input type="text" data-ng-model="vehicle.insuranceEndDate" class="form-control" id="insuranceEndDate" placeholder="Insurance End date" required>
+										<span class="input-group-addon">
+											<span class="glyphicon glyphicon-calendar"></span>
+										</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group has-feedback">
+                        <label for="inputRegistrationYear" class="col-sm-4 control-label">Vehicle Type</label>
+                        <div class="col-sm-4">
+                            <input type="text" data-ng-model="vehicle.vehicleType" class="form-control" id="inputRegistrationYear" placeholder="Vehicle Type" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group has-feedback">
+                        <label for="inputRegistrationName" class="col-sm-4 control-label">Owner Name</label>
+                        <div class="col-sm-8">
+                            <input type="text" data-ng-model="vehicle.ownerName" class="form-control" id="inputRegistrationName" placeholder="Owner Name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group has-feedback">
+                        <label for="inputRegistrationName" class="col-sm-4 control-label">Pan Number</label>
+                        <div class="col-sm-8">
+                            <input type="text" data-ng-model="vehicle.panNo" class="form-control" id="inputRegistrationName" placeholder="Pan Number" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group has-feedback">
+                        <label for="inputRegistrationName" class="col-sm-4 control-label">Phone Number</label>
+                        <div class="col-sm-8">
+                            <input type="text" data-ng-model="vehicle.phoneNo" class="form-control" id="inputRegistrationName" placeholder="Phone Number" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-info btn-default" ng-if="vehicle.id == null">Add</button>
+                    <button type="submit" class="btn btn-info btn-default" ng-if="vehicle.id != null">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

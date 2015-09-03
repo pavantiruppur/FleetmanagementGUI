@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="app" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="app" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="app" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="app" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="app.css">
+    <link type="text/css" rel="stylesheet" href="components/bootstrap/dist/css/bootstrap.css">
+    <script src="components/jquery/dist/jquery.js"></script>
+    <script src="components/bootstrap/dist/js/bootstrap.js"></script>
+    <script data-require="angular.js@1.2.10" data-semver="1.2.10" src="http://code.angularjs.org/1.2.10/angular.js"></script>
+    <script src="http://angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
+</head>
+<body>
+
+<div class="container" ng-app="app">
+    <div ng-include="'nav.html'"></div>
+    <div class="container">
+        <div class="row" style="margin-top: 70px;">
+            <div class="col-sm-3 col-md-2 sidebar"><ul class="nav nav-sidebar">
+                <li class="active"><a href="#/vehicle">Vehicle <span class="sr-only">(current)</span></a></li>
+                <li><a href="#/route">Route</a></li>
+                <li><a href="#/user">User</a></li>
+                <li><a href="#/package">Package</a></li>
+            </ul></div>
+            <div class="col-sm-9 col-sm-offset-3 col-md-9 col-md-offset-1 main">
+                <div class="navbar-collapse collapse">
+                    <div ui-view></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+  <script src="app.js"></script>
+<script src="vehicle/vehicle.js"></script>
+<script src="route/route.js"></script>
+<script src="user/user.js"></script>
+<script src="package/package.js"></script>
+  <script src="components/version/version.js"></script>
+  <script src="components/version/version-directive.js"></script>
+  <script src="components/version/interpolate-filter.js"></script>
+</body>
+</html>

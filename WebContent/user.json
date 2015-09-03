@@ -1,0 +1,42 @@
+{
+  "_links": {
+    "self": {
+      "href": "http://localhost:8080/FleetMgtSystem/users{?page,size,sort}",
+      "templated": true
+    }
+  },
+  "_embedded": {
+    "users": [
+      {
+        "id": "5584807fcb041554468f0972",
+        "name": "Shivanand",
+        "roles": [
+          "Employee"
+        ],
+        "address": "Indira nagar",
+        "phoneNo": "7845694904",
+        "pickupPoint": "IndiraNagar",
+        "_links": {
+          "self": {
+            "href": "http://localhost:8080/FleetMgtSystem/users/5584807fcb041554468f0972"
+          }
+        }
+      },
+      {
+        "id": "5586d638cb04477938baf5af",
+        "name": "Pavan",
+        "roles": [
+          "Employee"
+        ],
+        "address": "Indira nagar",
+        "phoneNo": "7845694904",
+        "pickupPoint": "IndiraNagar",
+        "_links": {
+          "self": {
+            "href": "http://localhost:8080/FleetMgtSystem/users/5586d638cb04477938baf5af"
+          }
+        }
+      }
+    ]
+  }
+}

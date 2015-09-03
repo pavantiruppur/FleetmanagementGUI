@@ -1,0 +1,106 @@
+<h1>{{title}}</h1>
+<button type="button" class="btn btn-default navbar-right navbar-btn" data-toggle="modal" ng-click="assignRoute(-1)" data-target="#addVehicleModal">Add Route</button>
+<div class="table-responsive">
+    <!-- <div class="alert alert-warning alert-dismissible" role="alert" >{{scope.status}}</div> -->
+
+    <!-- Table -->
+    <table class="table">
+        <tr>
+            <th>Route Name</th>
+            <th>Source</th>
+            <th>Destination</th>
+            <th>Pick up Point</th>
+            <th>Vehicle</th>
+            <th></th>
+        </tr>
+
+        <tr ng-repeat="route in listOfRoute._embedded.routes">
+            <td>{{route.routeName}}</td>
+            <td>{{route.source}}</td>
+            <td>{{route.destination}}</td>
+            <td><ul ng-repeat="pickUpPoint in route.pickUpPoints" class="nav nav-pills nav-stacked span2">
+                <li>{{pickUpPoint}}</li></ul></td>
+            <td><ul ng-repeat="vehicle in route.vehicleList" class="nav nav-pills nav-stacked">
+                <li><a href="#">{{vehicle.regNo}}</a></li></ul></td>
+            <td>
+                <button type="button" class="btn btn-default" aria-label="Left Align" data-toggle="modal" ng-click="assignRoute($index)" data-target="#addVehicleModal">
+                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="btn btn-default" aria-label="Left Align"  data-ng-click="deleteRoute($index)">
+                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<!-- Modal window -->
+<div class="modal fade" id="addVehicleModal" tabindex="-1" role="dialog" aria-labelledby="addVehicleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" data-ng-app="myApp">
+        <div class="modal-content">
+            <form id="addRoute" data-toggle="validator" class="form-horizontal" role="form" data-ng-submit="addOrUpdateRoute()">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="registrationModalLabel">Route Registration</h4>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="form-group has-feedback">
+                        <label for="routeName" class="col-sm-4 control-label">Route Name</label>
+                        <div class="col-sm-8">
+                            <input type="text" data-ng-model="route.routeName" class="form-control" id="routeName" placeholder="Route Name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group has-feedback">
+                        <label for="source" class="col-sm-4 control-label">Source</label>
+                        <div class="col-sm-8">
+                            <input type="text" data-ng-model="route.source" class="form-control" id="source" placeholder="Source" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group has-feedback">
+                        <label for="destination" class="col-sm-4 control-label">Destination</label>
+                        <div class="col-sm-8">
+                            <input type="text" data-ng-model="route.destination" class="form-control" id="destination" placeholder="Destination" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group has-feedback">
+                        <label for="pickUpPoints" class="col-sm-4 control-label">Pick Up Points</label>
+                        <div class="col-sm-8"><!--
+                            <div class="checkbox" id="pickUpPoint">
+                                <label>
+                                <input type="checkbox" checklist-model="route.pickUpPoints" checklist-value="Majestic" id="pickUpPoint1">
+                                    Majestic
+                                </label>
+                            </div>-->
+                            <div class="checkbox" id="pickUpPoints">
+                                <label ng-repeat="pickUpPoint in pickUpPoints">
+                                    <input
+                                            type="checkbox"
+                                            name="pickUpPoint"
+                                            value="{{pickUpPoint}}"
+                                            ng-checked="selectedList.indexOf(pickUpPoint) > -1"
+                                            data-ng-click="addToList(pickUpPoint)"
+                                            > {{pickUpPoint}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-info btn-default" ng-if="route.id == null">Add</button>
+                    <button type="submit" class="btn btn-info btn-default" ng-if="route.id != null">Update</button>
+                    <!--<button type="submit" class="btn btn-info btn-default" data-ng-click="createRoute()">Add</button>-->
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
